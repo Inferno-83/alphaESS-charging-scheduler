@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37012.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlphaESS_API", "AlphaESS_API\AlphaESS_API.csproj", "{C53216AE-BB48-4064-B8D4-F9A34E64E47A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlphaESS_API.Test", "AlphaESS_API.Test\AlphaESS_API.Test.csproj", "{C72006A2-5881-43F5-828E-58467DEDB526}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C53216AE-BB48-4064-B8D4-F9A34E64E47A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C53216AE-BB48-4064-B8D4-F9A34E64E47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C53216AE-BB48-4064-B8D4-F9A34E64E47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C53216AE-BB48-4064-B8D4-F9A34E64E47A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C72006A2-5881-43F5-828E-58467DEDB526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C72006A2-5881-43F5-828E-58467DEDB526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C72006A2-5881-43F5-828E-58467DEDB526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C72006A2-5881-43F5-828E-58467DEDB526}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84A94553-6776-4D31-8A58-90AB2A5EF25A}
+	EndGlobalSection
+EndGlobal
