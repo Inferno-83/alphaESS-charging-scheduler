@@ -1,0 +1,31 @@
+# Example crontab that works to have the battery charged by 3PM local time.
+# Only starts charging from 10AM, increments expected charge percentage each hour.
+#
+# Ensure to update the following:
+#   <SCRIPT_PATH>
+#   <ID>
+#   <SECRET>
+#   <SERIAL>
+
+# This will check before the charging window and identify we are outside so will DISABLE the charging
+*/10  9 * * * /usr/bin/python3.11 <SCRIPT_PATH>/alphaess_basic_charge_controller.py --app-id <ID> --app-secret <SECRET> --serial <SERIAL> --start "10:00" --end "15:00" --threshold 20 >> /var/log/alphaess/cron.charge.0900.log 2>&1
+
+# For each hour period, increment the threshold level that we expect to charge to.
+# Once the battery hits the required level we will stop it from charging and allow discharging.
+# Currently doing this on a 10 minute interval
+*/10 10 * * * /usr/bin/python3.11 <SCRIPT_PATH>/alphaess_basic_charge_controller.py --app-id <ID> --app-secret <SECRET> --serial <SERIAL> --start "10:00" --end "15:00" --threshold 25 >> /var/log/alphaess/cron.charge.1000.log 2>&1
+*/10 11 * * * /usr/bin/python3.11 <SCRIPT_PATH>/alphaess_basic_charge_controller.py --app-id <ID> --app-secret <SECRET> --serial <SERIAL> --start "10:00" --end "15:00" --threshold 45 >> /var/log/alphaess/cron.charge.1100.log 2>&1
+*/10 12 * * * /usr/bin/python3.11 <SCRIPT_PATH>/alphaess_basic_charge_controller.py --app-id <ID> --app-secret <SECRET> --serial <SERIAL> --start "10:00" --end "15:00" --threshold 65 >> /var/log/alphaess/cron.charge.1200.log 2>&1
+*/10 13 * * * /usr/bin/python3.11 <SCRIPT_PATH>/alphaess_basic_charge_controller.py --app-id <ID> --app-secret <SECRET> --serial <SERIAL> --start "10:00" --end "15:00" --threshold 85 >> /var/log/alphaess/cron.charge.1300.log 2>&1
+*/10 14 * * * /usr/bin/python3.11 <SCRIPT_PATH>/alphaess_basic_charge_controller.py --app-id <ID> --app-secret <SECRET> --serial <SERIAL> --start "10:00" --end "15:00" --threshold 100 >> /var/log/alphaess/cron.charge.1400.log 2>&1
+
+# This will check before the charging window and identify we are outside so will DISABLE the charging
+*/10 15 * * * /usr/bin/python3.11 <SCRIPT_PATH>/alphaess_basic_charge_controller.py --app-id <ID> --app-secret <SECRET> --serial <SERIAL> --start "10:00" --end "15:00" --threshold 20 >> /var/log/alphaess/cron.charge.1500.log 2>&1
+
+# Again just run a few times in the night to make sure we are off
+*/20 23 * * * /usr/bin/python3.11 <SCRIPT_PATH>/alphaess_basic_charge_controller.py --app-id <ID> --app-secret <SECRET> --serial <SERIAL> --start "10:00" --end "15:00" --threshold 20 >> /var/log/alphaess/cron.charge.2300.log 2>&1
+
+# Clean up the log files once per month
+0 1 1 * * rm /var/log/alphaess/cron.*
+0 1 1 * * rm /var/log/growatt/cron.*
+0 1 1 * * rm /var/log/rclone/cron.*
